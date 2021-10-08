@@ -1,3 +1,4 @@
+use bookish;
 
 Create table Books(
 ID INT NOT NULL PRIMARY KEY,

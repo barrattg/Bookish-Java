@@ -1,5 +1,7 @@
 package org.softwire.training.bookish;
 
+import org.jdbi.v3.core.Jdbi;
+
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.util.HashMap;
