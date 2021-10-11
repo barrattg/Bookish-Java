@@ -43,16 +43,16 @@ public class GetLoans implements Command {
 
                 ).forEach(v -> {
                     System.out.println(v);
-
-
+                    Date date =java.util.Calendar.getInstance().getTime();
+                    if (v.getReturnedDate() == null && date.after(v.getExpectedReturnDate())
+                    ) {
+                        System.out.println("BookID " + v.getBookID()+" is overdue!, please contact User ID " + v.getUserID());
+                    }
                 });
-
-
             }
             catch (Exception e){
 
                 System.out.println("User ID invalid");
-
             }
         }
 

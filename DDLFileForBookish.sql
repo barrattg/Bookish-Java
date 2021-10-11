@@ -23,7 +23,8 @@ Foreign Key (UserID) References Users (ID),
 BookID INT,
 Foreign Key (BookID) References Books (ID),
 CheckoutDate date ,
-ExpectedReturnDate date
+ExpectedReturnDate date,
+ReturnedDate date
 
 );
 
