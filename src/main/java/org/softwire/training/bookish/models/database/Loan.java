@@ -1,6 +1,7 @@
 package org.softwire.training.bookish.models.database;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Loan {
 
@@ -59,5 +60,18 @@ public class Loan {
                 ", CheckoutDate=" + CheckoutDate +
                 ", ExpectedReturnDate=" + ExpectedReturnDate +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Loan loan = (Loan) o;
+        return ID == loan.ID && UserID == loan.UserID && BookID == loan.BookID && CheckoutDate.equals(loan.CheckoutDate) && ExpectedReturnDate.equals(loan.ExpectedReturnDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ID, UserID, BookID, CheckoutDate, ExpectedReturnDate);
     }
 }

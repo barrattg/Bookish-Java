@@ -5,7 +5,7 @@ import org.softwire.training.bookish.models.database.Book;
 
 import java.util.List;
 
-public class BookGetter implements Command {
+public class GetBook implements Command {
 
 
 
@@ -24,5 +24,7 @@ public class BookGetter implements Command {
 
              tempBooks.forEach(v ->{System.out.println(v);});
         }
+
+
     }
 
