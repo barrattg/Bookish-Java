@@ -12,8 +12,8 @@ Check in book
 Add book
 Add Author
 Add author to book
-list of books on loan
-    - specific user
+*list of books on loan
+    *- specific user
     - past return date
 get author of book
 get books from author
