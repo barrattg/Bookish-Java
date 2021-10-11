@@ -1,5 +1,6 @@
-
-Create table  Books(
+Use bookish;
+DROP TABLE IF EXISTS Books, Authors, Users, Loans, BooksToAuthors, Copies;
+Create table Books(
 ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 Name varchar (255) NOT NULL,
 ISBN varchar (13) NOT NULL,
@@ -37,7 +38,7 @@ Foreign Key (AuthorID) References Authors (ID)
 );
 
 Create table Copies(
-CopyID int PRIMARY KEY,
+CopyID int AUTO_INCREMENT PRIMARY KEY,
 BookID int,
 Foreign Key (BookID) References Books (ID)
 
