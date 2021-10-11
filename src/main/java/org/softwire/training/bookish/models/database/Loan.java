@@ -10,6 +10,7 @@ public class Loan {
     int BookID;
     Date CheckoutDate;
     Date ExpectedReturnDate;
+    Date ReturnedDate;
 
     public int getID() {
         return ID;
@@ -51,6 +52,14 @@ public class Loan {
         ExpectedReturnDate = expectedReturnDate;
     }
 
+    public Date getReturnedDate() {
+        return ReturnedDate;
+    }
+
+    public void setReturnedDate(Date returnedDate) {
+        ReturnedDate = returnedDate;
+    }
+
     @Override
     public String toString() {
         return "Loan{" +
@@ -59,6 +68,7 @@ public class Loan {
                 ", BookID=" + BookID +
                 ", CheckoutDate=" + CheckoutDate +
                 ", ExpectedReturnDate=" + ExpectedReturnDate +
+                ", ReturnedDate=" + ReturnedDate +
                 '}';
     }
 
@@ -67,11 +77,11 @@ public class Loan {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Loan loan = (Loan) o;
-        return ID == loan.ID && UserID == loan.UserID && BookID == loan.BookID && CheckoutDate.equals(loan.CheckoutDate) && ExpectedReturnDate.equals(loan.ExpectedReturnDate);
+        return ID == loan.ID && UserID == loan.UserID && BookID == loan.BookID && CheckoutDate.equals(loan.CheckoutDate) && ExpectedReturnDate.equals(loan.ExpectedReturnDate) && Objects.equals(ReturnedDate, loan.ReturnedDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ID, UserID, BookID, CheckoutDate, ExpectedReturnDate);
+        return Objects.hash(ID, UserID, BookID, CheckoutDate, ExpectedReturnDate, ReturnedDate);
     }
 }

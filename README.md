@@ -15,6 +15,7 @@ Add author to book
 *list of books on loan
     *- specific user
     - past return date
+loans out of a specific book i.e. copy id and estimated return dates.
 get author of book
 get books from author
 list all copies of a book
