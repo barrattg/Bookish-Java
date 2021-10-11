@@ -11,7 +11,7 @@ public class ReadEvaluatePrint {
 
     public static void Loop(Jdbi jdbi) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("View available commands with 'help'");
+            System.out.println("View available commands with 'Help'");
 
             while (true) {
 
