@@ -21,8 +21,8 @@ Create table Loans(
 ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 UserID INT NOT NULL,
 Foreign Key (UserID) References Users (ID),
-BookID INT,
-Foreign Key (BookID) References Books (ID),
+CopyID INT,
+Foreign Key (CopyID) References Copies (ID),
 CheckoutDate date ,
 ExpectedReturnDate date
 
@@ -38,7 +38,7 @@ Foreign Key (AuthorID) References Authors (ID)
 );
 
 Create table Copies(
-CopyID int AUTO_INCREMENT PRIMARY KEY,
+ID int AUTO_INCREMENT PRIMARY KEY,
 BookID int,
 Foreign Key (BookID) References Books (ID)
 
