@@ -6,6 +6,7 @@ import org.softwire.training.bookish.models.database.User;
 import org.springframework.validation.DataBinder;
 
 import java.sql.SQLOutput;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -42,7 +43,10 @@ public class GetLoans implements Command {
 
                 ).forEach(v -> {
                     System.out.println(v);
+
+
                 });
+
 
             }
             catch (Exception e){
@@ -51,5 +55,6 @@ public class GetLoans implements Command {
 
             }
         }
+
     }
 }
