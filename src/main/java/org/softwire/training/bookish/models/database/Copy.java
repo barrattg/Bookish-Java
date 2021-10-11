@@ -1,5 +1,7 @@
 package org.softwire.training.bookish.models.database;
 
+import java.util.Objects;
+
 public class Copy {
 
     int CopyID;
@@ -27,5 +29,18 @@ public class Copy {
                 "CopyID=" + CopyID +
                 ", BookID=" + BookID +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Copy copy = (Copy) o;
+        return CopyID == copy.CopyID && BookID == copy.BookID;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(CopyID, BookID);
     }
 }

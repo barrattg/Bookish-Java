@@ -22,7 +22,7 @@ public class ReadEvaluatePrint {
                 if (input.length == 1) input = new String[]{input[0], ""};
 
                 try {
-                    Class<?> commandClass = Class.forName("org.softwire.training.bookish.commands." + input[0].substring(0, 1).toUpperCase() + input[0].substring(1).toLowerCase());
+                    Class<?> commandClass = Class.forName("org.softwire.training.bookish.commands." + input[0]);
                     Object commandInstance = commandClass.newInstance();
                     Method m = commandClass.getDeclaredMethod("Execute", String.class, Jdbi.class);
                     m.invoke(commandInstance, rawInput, jdbi);

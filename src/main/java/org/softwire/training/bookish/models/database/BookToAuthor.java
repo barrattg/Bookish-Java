@@ -1,5 +1,7 @@
 package org.softwire.training.bookish.models.database;
 
+import java.util.Objects;
+
 public class BookToAuthor {
 
     int BookID;
@@ -27,5 +29,18 @@ public class BookToAuthor {
                 "BookID=" + BookID +
                 ", AuthorID=" + AuthorID +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BookToAuthor that = (BookToAuthor) o;
+        return BookID == that.BookID && AuthorID == that.AuthorID;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(BookID, AuthorID);
     }
 }

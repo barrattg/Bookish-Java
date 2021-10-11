@@ -1,5 +1,7 @@
 package org.softwire.training.bookish.models.database;
 
+import java.util.Objects;
+
 public class User {
 
     int ID;
@@ -37,5 +39,18 @@ public class User {
                 ", Name='" + Name + '\'' +
                 ", Address='" + Address + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return ID == user.ID && Name.equals(user.Name) && Objects.equals(Address, user.Address);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ID, Name, Address);
     }
 }
