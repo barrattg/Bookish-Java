@@ -11,12 +11,18 @@ PublishDate date NOT NULL
 Create table Authors(
 ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 Name varchar (255) NOT NULL
-
 );
+
 Create table Users(
 ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 Name varchar (255),
 Address varchar (255)
+);
+
+Create table Copies(
+ID int AUTO_INCREMENT PRIMARY KEY,
+BookID int,
+Foreign Key (BookID) References Books (ID)
 );
 
 Create table Loans(
@@ -31,14 +37,9 @@ ReturnedDate date
 );
 
 Create table BooksToAuthors(
-BookID INT NOT NULL AUTO_INCREMENT,
+BookID INT NOT NULL,
 AuthorID INT NOT NULL,
 Foreign Key (BookID) References Books (ID),
 Foreign Key (AuthorID) References Authors (ID)
 );
 
-Create table Copies(
-ID int AUTO_INCREMENT PRIMARY KEY,
-BookID int,
-Foreign Key (BookID) References Books (ID)
-);
