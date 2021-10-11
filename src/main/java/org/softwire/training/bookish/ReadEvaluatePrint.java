@@ -25,11 +25,10 @@ public class ReadEvaluatePrint {
                     Class<?> commandClass = Class.forName("org.softwire.training.bookish.commands." + input[0]);
                     Object commandInstance = commandClass.newInstance();
                     Method m = commandClass.getDeclaredMethod("Execute", String.class, Jdbi.class);
-                    m.invoke(commandInstance, rawInput, jdbi);
+                    m.invoke(commandInstance, input[1], jdbi);
 
                 } catch (Exception e) {
-
-                    e.printStackTrace();
+                    if (input[1].split(" ")[input[1].split(" ").length - 1].equals("-e")) e.printStackTrace();
                     System.out.println("Invalid command, type 'Help' to see available commands  :)");
                 }
             }

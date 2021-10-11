@@ -11,22 +11,18 @@ public class AddBook implements Command {
 
 
     @Override
-    public void Execute(String input, Jdbi jdbi) {
+    public void Execute(String input, Jdbi jdbi) throws ParseException {
 
         String[] data = input.split(" ");
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
-        try {
-            jdbi.withHandle(handle ->
-                    handle.execute("INSERT INTO books(name, ISBN, PublishDate) VALUES (?, ?, ?)",
-                            data[1],
-                            data[2],
-                            new java.sql.Date(format.parse(data[3]).getTime())
-                    ));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        jdbi.withHandle(handle ->
+                handle.execute("INSERT INTO books(name, ISBN, PublishDate) VALUES (?, ?, ?)",
+                        data[0],
+                        data[1],
+                        new java.sql.Date(format.parse(data[3]).getTime())
+                ));
 
     }
 }
