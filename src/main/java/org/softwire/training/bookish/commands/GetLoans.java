@@ -1,14 +1,11 @@
 package org.softwire.training.bookish.commands;
-
 import org.jdbi.v3.core.Jdbi;
 import org.softwire.training.bookish.models.database.Book;
 import org.softwire.training.bookish.models.database.User;
 
 import java.util.List;
 
-public class UserGetter implements Command {
-
-
+public class GetLoans implements Command {
 
     @Override
     public void Execute(String input, Jdbi jdbi) {
@@ -16,7 +13,7 @@ public class UserGetter implements Command {
 
         jdbi.withHandle(handle ->
 
-                handle.createQuery("Select * FROM users")
+                handle.createQuery("Select * FROM loans where ")
                         .mapToBean(User.class)
                         .list()
 
