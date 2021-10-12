@@ -4,7 +4,6 @@ import org.softwire.training.bookish.models.database.Book;
 import org.softwire.training.bookish.models.database.Loan;
 import org.softwire.training.bookish.models.database.User;
 import org.springframework.validation.DataBinder;
-
 import java.sql.SQLOutput;
 import java.util.Date;
 import java.util.List;
@@ -30,9 +29,12 @@ public class GetLoans implements Command {
                             .list()
 
             ).forEach(v -> {
+
+
                 System.out.println(v);
 
-                 {
+                if(v.getReturnedDate() == null)
+                {
                     System.out.println("CopyID " + v.getCopyID()+" is overdue!, please contact User ID " + v.getUserID());
                 }
                 });
