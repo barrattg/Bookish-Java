@@ -1,6 +1,9 @@
 package org.softwire.training.bookish.commands;
 import org.jdbi.v3.core.Jdbi;
 import org.softwire.training.bookish.models.database.Book;
+
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class ReserveCopy implements Command {
@@ -18,27 +21,34 @@ public class ReserveCopy implements Command {
         String UserID = myObj.nextLine();
         //todo change copy class to have copyID /checkout and remove expected return
          try {
-             System.out.println("im here");
-             jdbi.withHandle(handle ->
 
-                 handle.createQuery("Select books.ID FROM books WHERE books.Name =:Name INSERT INTO loans (UserID, CopyID) SELECT :UserID, copies.ID" +
-                                 " JOIN books ON books.ID = copies.BookID LEFT OUTER JOIN loans ON copies.ID = loans.CopyID WHERE Books.ID = :UserID AND (loans.UserID IS null or" +
-                                 " loans.ReturnedDate is not null)")
+             Object o = jdbi.withHandle(handle ->
 
-                         .bind("Name",bookName)
-                         .bind("UserID", UserID)
-                         .mapToBean(Book.class)
-                         .list()
-             )
+                     handle.createUpdate("INSERT INTO loans (UserID, CopyID) SELECT :UserID, copies.ID" +
+                                     " FROM copies " +
+                                     " JOIN books ON books.ID = copies.BookID " +
+                                     " LEFT OUTER JOIN loans ON copies.ID = loans.CopyID " +
+                                     " WHERE Books.Name = :Name AND (loans.UserID IS null or" +
+                                     " loans.ReturnedDate is not null) " +
+                                     " limit 1")
 
-            ;
+                             .bind("Name", bookName)
+                             .bind("UserID", UserID)
+                             .execute()
 
-
-        }
+             );
+             if (o.toString().equals("0") ) {
+                 System.out.println("There were no copies available of " + bookName + " sorry");
+             }
+             else {
+                 System.out.println(bookName + " added to loans table for User " + UserID);
+             }
+         }
          catch (Exception e){
              System.out.println(e);
          }
+            }
 
     }
 
-}
+
