@@ -10,26 +10,25 @@ public class BOOK implements Command {
     @Override
     public void Execute(String input, Jdbi jdbi) throws Exception {
 
-        String[] data = input.split(" ");
+        if (input.equals("")) {
+            System.out.println("Usage: BOOK ADD/LIST/CHECKOUT/CHECKIN/REMOVE");
+            return;
+        }
+
+        String[] data = input.split(" ", 2);
+
+        String parameters = (data.length == 1) ? "" : data[1];
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
+        Class<?> commandClass = Command.class;
+
         switch (data[0]) {
             case "ADD":
-
-                jdbi.withHandle(handle ->
-                        handle.execute("INSERT INTO books(name, ISBN, PublishDate) VALUES (?, ?, ?)",
-                                data[1],
-                                data[2],
-                                new java.sql.Date(format.parse(data[3]).getTime())
-                        ));
+                commandClass = AddBook.class;
                 break;
             case "LIST" :
-                jdbi.withHandle(handle ->
-                        handle.createQuery("Select * FROM books")
-                                .mapToBean(Book.class)
-                                .list()
-                ).forEach(System.out::println);
+                commandClass = GetBook.class;
                 break;
             case "CHECKOUT" :
 
@@ -38,9 +37,11 @@ public class BOOK implements Command {
 
                 break;
             case "REMOVE" :
-
+                commandClass = RemoveBook.class;
                 break;
         }
+
+        commandClass.getDeclaredMethod("Execute", String.class, Jdbi.class).invoke(commandClass.newInstance(), parameters, jdbi);
 
     }
 }
