@@ -14,7 +14,9 @@ public class Help implements Command {
                 "\nGetUser  // List Users" +
                 "\nGetAuthors // Get Authors" +
                 "\nAUTHOR ADD/LIST  // " +
-                "\nBOOK ADD/LIST  // "
+                "\nBOOK ADD/LIST  // " +
+                "\nSearchBook {name} // Search for a book" +
+                "\nSearchAuthor {name} // Search for an author"
 
         );
 

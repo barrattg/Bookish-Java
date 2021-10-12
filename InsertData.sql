@@ -36,7 +36,7 @@ INSERT INTO Users SET Name='John Paul Johns', Address='11 Marechal Niel Avenue, 
 INSERT INTO Users SET Name='Christmas Hailey', Address='52 Janes Lane, Burgess Hill, RH15 0QR';
 INSERT INTO Users SET Name='Elliot Granger', Address='Flat 2, 26 Church Street, Sheringham, NR26 8QS';
 
-INSERT INTO Loans SET UserID='5', CopyID='10', CheckoutDate='2021-09-14', ExpectedReturnDate='2021-10-14', ReturnedDate=NULL;
+INSERT INTO Loans SET UserID='5', CopyID='10', CheckoutDate='2021-10-10', ExpectedReturnDate='2021-11-10', ReturnedDate=NULL;
 INSERT INTO Loans SET UserID='1', CopyID='12', CheckoutDate='2021-03-05', ExpectedReturnDate='2021-04-05', ReturnedDate='2021-04-02';
 INSERT INTO Loans SET UserID='3', CopyID='3', CheckoutDate='2021-06-10', ExpectedReturnDate='2021-07-10', ReturnedDate='2021-06-12';
 INSERT INTO Loans SET UserID='2', CopyID='11', CheckoutDate='2021-01-04', ExpectedReturnDate='2021-02-04', ReturnedDate='2021-01-29';
