@@ -6,18 +6,18 @@ List Books
 Add users
 list of books on loan /specific user /past return date
 AddBook
+Add Author 
+Get Author
 
 todo:
 Add copy of book *Fin*
 Check out book *Fin*
 Check in book *Fin*
 
-Add Author
-Add author to book
 loans out of a specific book i.e. copy id and estimated return dates of next to be returned. *Greg*
-get author of book
+Populate booktoAuthor Table. *Becky/Ellie*
 get books from author
-list all copies of a book
+
 
 
 
