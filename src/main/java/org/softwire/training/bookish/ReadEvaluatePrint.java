@@ -25,7 +25,7 @@ public class ReadEvaluatePrint {
                     Class<?> commandClass = Class.forName("org.softwire.training.bookish.commands." + input[0]);
                     Object commandInstance = commandClass.newInstance();
                     Method m = commandClass.getDeclaredMethod("Execute", String.class, Jdbi.class);
-                    m.invoke(commandInstance, input[1], jdbi);
+                    m.invoke(commandInstance, (input.length == 1) ? "" : input[1], jdbi);
 
                 } catch (Exception e) {
                     if (input[1].split(" ")[input[1].split(" ").length - 1].equals("-e")) e.printStackTrace();
