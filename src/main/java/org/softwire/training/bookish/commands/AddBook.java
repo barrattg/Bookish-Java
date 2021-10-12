@@ -21,7 +21,7 @@ public class AddBook implements Command {
                 handle.execute("INSERT INTO books(name, ISBN, PublishDate) VALUES (?, ?, ?)",
                         data[0],
                         data[1],
-                        new java.sql.Date(format.parse(data[3]).getTime())
+                        new java.sql.Date(format.parse(data[2]).getTime())
                 ));
 
     }
