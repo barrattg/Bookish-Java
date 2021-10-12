@@ -12,7 +12,9 @@ public class Help implements Command {
                 "\nGetBook  // List all books in the database" +
                 "\nGetLoans [UserID]  // Get list of loaned books" +
                 "\nGetUser  // List Users" +
-                "\nGetAuthors // Get Authors"
+                "\nGetAuthors // Get Authors" +
+                "\nSearchBook {name} // Search for a book" +
+                "\nSearchAuthor {name} // Search for an author"
 
         );
 
