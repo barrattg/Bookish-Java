@@ -7,7 +7,8 @@ public class Copy {
 
     int CopyID;
     int BookID;
-    Date ReturnDate;
+    Date LoanedDate;
+    //thinking of reserving datetime think of reserve add 3 hour window if elapsed, remove flag.
 
     public int getCopyID() {
         return CopyID;
@@ -25,21 +26,12 @@ public class Copy {
         BookID = bookID;
     }
 
-    public Date getReturnDate() {
-        return ReturnDate;
+    public Date getLoanedDate() {
+        return LoanedDate;
     }
 
-    public void setReturnDate(Date returnDate) {
-        ReturnDate = returnDate;
-    }
-
-    @Override
-    public String toString() {
-        return "Copy{" +
-                "CopyID=" + CopyID +
-                ", BookID=" + BookID +
-                ", ReturnDate=" + ReturnDate +
-                '}';
+    public void setLoanedDate(Date loanedDate) {
+        LoanedDate = loanedDate;
     }
 
     @Override
@@ -47,12 +39,20 @@ public class Copy {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Copy copy = (Copy) o;
-        return CopyID == copy.CopyID && BookID == copy.BookID && Objects.equals(ReturnDate, copy.ReturnDate);
+        return CopyID == copy.CopyID && BookID == copy.BookID && LoanedDate.equals(copy.LoanedDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(CopyID, BookID, ReturnDate);
+        return Objects.hash(CopyID, BookID, LoanedDate);
     }
 
+    @Override
+    public String toString() {
+        return "Copy{" +
+                "CopyID=" + CopyID +
+                ", BookID=" + BookID +
+                ", LoanedDate=" + LoanedDate +
+                '}';
+    }
 }

@@ -1,7 +1,6 @@
 package org.softwire.training.bookish.commands;
 import org.jdbi.v3.core.Jdbi;
 import org.softwire.training.bookish.models.database.Book;
-import org.softwire.training.bookish.models.database.Copy;
 import java.util.Scanner;
 
 public class ReserveCopy implements Command {
@@ -15,21 +14,29 @@ public class ReserveCopy implements Command {
         Scanner myObj = new Scanner(System.in);
         System.out.println("Enter Book Name to be reserved: ");
         String bookName = myObj.nextLine();
+        System.out.println("Enter UserID: ");
+        String UserID = myObj.nextLine();
         //todo change copy class to have copyID /checkout and remove expected return
          try {
              System.out.println("im here");
              jdbi.withHandle(handle ->
 
-                 handle.createQuery("Select ID FROM books WHERE books.Name =:Name ")
+                 handle.createQuery("Select books.ID FROM books WHERE books.Name =:Name INSERT INTO loans (UserID, CopyID) SELECT :UserID, copies.ID" +
+                                 " JOIN books ON books.ID = copies.BookID LEFT OUTER JOIN loans ON copies.ID = loans.CopyID WHERE Books.ID = :UserID AND (loans.UserID IS null or" +
+                                 " loans.ReturnedDate is not null)")
+
                          .bind("Name",bookName)
+                         .bind("UserID", UserID)
                          .mapToBean(Book.class)
                          .list()
+             )
 
-            );
+            ;
+
 
         }
          catch (Exception e){
-             System.out.println("Exception");
+             System.out.println(e);
          }
 
     }
