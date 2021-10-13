@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <!--@thymesVar id="model" type="org.softwire.training.bookish.models.page.AboutPageModel"-->
+
+    <head>
+        <title>Bookish - About Us</title>
+
+        <link rel="stylesheet" href="/styles/general.css"/>
+        <link rel="stylesheet" href="/styles/navbar.css"/>
+        <link rel="stylesheet" href="/styles/about.css"/>
+    </head>
+
+    <body>
+
+        <div th:replace="fragments/navbar :: navbar">
+            <!-- This element is replaced by the HTML in fragments/navbar.html -->
+        </div>
+
+        <div class="container">
+            <h2>This app was made using:</h2>
+
+            <div class="technology-list">
+                <div th:each="technology : ${model.technologies}" class="technology">
+                    <img th:src="${technology.logoUrl}" th:title="${technology.name}" />
+
+                    <a th:href="${'/about/delete-technology?technologyId=' + technology.id}" class="delete-button">delete</a>
+                </div>
+            </div>
+
+            <h2>Add a technology:</h2>
+            <form th:action="@{/about/add-technology}" method="post">
+                <div class="add-tech-row">
+                    <label>
+                        <span>Name: </span>
+                        <input type="text" name="name">
+                    </label>
+                </div>
+                <div class="add-tech-row">
+                    <label>
+                        <span>Logo URL: </span>
+                        <input type="text" name="logoUrl">
+                    </label>
+                </div>
+                <div class="add-tech-row">
+                    <span><!-- spacer --></span>
+                    <input type="submit" value="Add technology" />
+                </div>
+            </form>
+        </div>
+
+    </body>
+
+
+</html>

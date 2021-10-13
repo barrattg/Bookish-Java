@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+    <head>
+        <title>Bookish - Home</title>
+
+        <link rel="stylesheet" href="/styles/general.css"/>
+        <link rel="stylesheet" href="/styles/navbar.css"/>
+        <link rel="stylesheet" href="/styles/index.css"/>
+    </head>
+
+    <body>
+
+        <div th:replace="fragments/navbar :: navbar">
+            <!-- This element is replaced by the HTML in fragments/navbar.html -->
+        </div>
+
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Bookish</h1>
+
+                <p class="lead">Welcome to the Bookish application</p>
+                <p class="lead">Find your way around using the links above</p>
+            </div>
+        </div>
+
+    </body>
+
+
+</html>
