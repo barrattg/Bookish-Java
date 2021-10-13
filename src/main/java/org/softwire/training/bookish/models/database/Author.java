@@ -7,11 +7,11 @@ public class Author {
     int ID;
     String Name;
 
-    public int getID() {
+    public int getId() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setId(int ID) {
         this.ID = ID;
     }
 

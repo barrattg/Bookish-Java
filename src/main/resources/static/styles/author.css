@@ -1,0 +1,23 @@
+
+.author-list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+}
+
+.author {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.author-inside {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+}
