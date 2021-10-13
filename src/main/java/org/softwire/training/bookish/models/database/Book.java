@@ -43,22 +43,11 @@ public class Book {
     }
 
     @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", isbn='" + isbn + '\'' +
-                ", publishDate=" + publishDate +
-
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return id == book.id && name.equals(book.name) && isbn.equals(book.isbn) && Objects.equals(publishDate, book.publishDate);
+        return id == book.id && Objects.equals(name, book.name) && Objects.equals(isbn, book.isbn) && Objects.equals(publishDate, book.publishDate);
     }
 
     @Override

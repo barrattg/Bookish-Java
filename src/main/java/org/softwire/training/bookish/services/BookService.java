@@ -30,10 +30,11 @@ public class BookService extends DatabaseService {
     }
 
     public void removeBook(Book book) {
+        System.out.println(book);
         jdbi.useHandle(handle ->
-                handle.createUpdate("DELETE FROM books WHERE ID =:ID")
-                        .bind("ID", book.getId())
-
+                handle.createUpdate("DELETE FROM books WHERE id =:bookId")
+                        .bind("bookId", book.getId())
+                        .execute()
         );
     }
 

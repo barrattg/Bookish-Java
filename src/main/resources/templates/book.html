@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<link href = "bookSystem.css" type = "text/css" rel = "stylesheet" />
+
 <div th:replace="fragments/navbar :: navbar">
     <!-- This element is replaced by the HTML in fragments/navbar.html -->
 </div>
@@ -23,7 +23,7 @@
     <div class="book-list">
         <div th:each="book : ${model.books}" class="book">
             <p th:text="${book.getName()}"></p>
-            <a th:href="${'/book/delete-book?bookId=' + book.Id}" class="delete-button">delete</a>
+            <a th:href="${'/book/remove-book?bookId=' + book.getId()}" class="delete-button">delete</a>
         </div>
     </div>
 
