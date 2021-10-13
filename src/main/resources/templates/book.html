@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<!--@thymesVar id="model" type="org.softwire.training.bookish.models.page.BookSystemModel"-->
+
+<head>
+    <title>Bookish - Books</title>
+
+    <link rel="stylesheet" href="/styles/general.css"/>
+    <link rel="stylesheet" href="/styles/navbar.css"/>
+    <link rel="stylesheet" href="/styles/about.css"/>
+</head>
+
+<body>
+<link href = "bookSystem.css" type = "text/css" rel = "stylesheet" />
+<div th:replace="fragments/navbar :: navbar">
+    <!-- This element is replaced by the HTML in fragments/navbar.html -->
+</div>
+
+<div class="container">
+    <h2></h2>
+
+    <div class="book-list">
+        <div th:each="book : ${model.books}" class="book">
+            <p th:text="${book.getName()}"></p>
+            <a th:href="${'/book/delete-book?bookID=' + book.ID}" class="delete-button">delete</a>
+        </div>
+    </div>
+
+
+    <h2>Add a book:</h2>
+    <form th:action="@{/book/add-book}" method="post">
+
+        <div class="add-book-row">
+            <label>
+                <span>Name: </span>
+                <input type="text" name="Name">
+            </label>
+        </div>
+        <div class="add-book-row">
+            <label>
+                <span>ISBN: </span>
+                <input type="text" name="ISBN">
+            </label>
+        </div>
+        <div class="add-book-row">
+            <label>
+                <span>PublishDate: </span>
+                <input type="text" name="PublishDate">
+            </label>
+        </div>
+        <div class="add-book-row">
+            <span><!-- spacer --></span>
+            <input type="submit" value="Add book" />
+        </div>
+    </form>
+</div>
+
+</body>
+
+
+</html>
