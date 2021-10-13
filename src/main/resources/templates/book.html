@@ -23,7 +23,7 @@
     <div class="book-list">
         <div th:each="book : ${model.books}" class="book">
             <p th:text="${book.getName()}"></p>
-            <a th:href="${'/book/delete-book?bookID=' + book.ID}" class="delete-button">delete</a>
+            <a th:href="${'/book/delete-book?bookId=' + book.Id}" class="delete-button">delete</a>
         </div>
     </div>
 
@@ -34,19 +34,19 @@
         <div class="add-book-row">
             <label>
                 <span>Name: </span>
-                <input type="text" name="Name">
+                <input type="text" name="name">
             </label>
         </div>
         <div class="add-book-row">
             <label>
                 <span>ISBN: </span>
-                <input type="text" name="ISBN">
+                <input type="text" name="isbn">
             </label>
         </div>
         <div class="add-book-row">
             <label>
                 <span>PublishDate: </span>
-                <input type="text" name="PublishDate">
+                <input type="text" name="publishDate">
             </label>
         </div>
         <div class="add-book-row">

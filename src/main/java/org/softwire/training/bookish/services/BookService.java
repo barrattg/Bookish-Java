@@ -21,10 +21,10 @@ public class BookService extends DatabaseService {
     public void addBook(Book book) {
         System.out.println(book);
         jdbi.useHandle(handle ->
-                handle.createUpdate("INSERT INTO books (Name, ISBN, PublishDate) VALUES (:Name, :ISBN, :PublishDate)")
-                        .bind("Name", book.getName())
-                        .bind("ISBN", book.getISBN())
-                        .bind("PublishDate", book.getPublishDate())
+                handle.createUpdate("INSERT INTO books (Name, ISBN, PublishDate) VALUES (:name, :isbn, :publishDate)")
+                        .bind("name", book.getName())
+                        .bind("isbn", book.getIsbn())
+                        .bind("publishDate", book.getPublishDate())
                         .execute()
         );
     }
@@ -32,7 +32,7 @@ public class BookService extends DatabaseService {
     public void removeBook(Book book) {
         jdbi.useHandle(handle ->
                 handle.createUpdate("DELETE FROM books WHERE ID =:ID")
-                        .bind("ID", book.getID())
+                        .bind("ID", book.getId())
 
         );
     }

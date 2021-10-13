@@ -5,50 +5,50 @@ import java.util.Objects;
 
 public class Book {
 
-    private int ID;
-    private String Name;
-    private String ISBN;
-    private Date PublishDate;
+    private int id;
+    private String name;
+    private String isbn;
+    private String publishDate;
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getISBN() {
-        return ISBN;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
-    public Date getPublishDate() {
-        return PublishDate;
+    public String getPublishDate() {
+        return publishDate;
     }
 
-    public void setPublishDate(Date publishDate) {
-        PublishDate = publishDate;
+    public void setPublishDate(String publishDate) {
+        this.publishDate = publishDate;
     }
 
     @Override
     public String toString() {
         return "Book{" +
-                "ID=" + ID +
-                ", Name='" + Name + '\'' +
-                ", ISBN='" + ISBN + '\'' +
-                ", PublishDate=" + PublishDate +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", publishDate=" + publishDate +
 
                 '}';
     }
@@ -58,11 +58,11 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return ID == book.ID && Name.equals(book.Name) && ISBN.equals(book.ISBN) && Objects.equals(PublishDate, book.PublishDate);
+        return id == book.id && name.equals(book.name) && isbn.equals(book.isbn) && Objects.equals(publishDate, book.publishDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ID, Name, ISBN, PublishDate);
+        return Objects.hash(id, name, isbn, publishDate);
     }
 }
