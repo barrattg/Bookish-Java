@@ -11,7 +11,7 @@ public class ReadEvaluatePrint {
 
     public static void Loop(Jdbi jdbi) {
             Scanner scanner = new Scanner(System.in);
-            System.out.println("View available commands with 'help'");
+            System.out.println("View available commands with 'Help'");
 
             while (true) {
 
@@ -25,11 +25,10 @@ public class ReadEvaluatePrint {
                     Class<?> commandClass = Class.forName("org.softwire.training.bookish.commands." + input[0]);
                     Object commandInstance = commandClass.newInstance();
                     Method m = commandClass.getDeclaredMethod("Execute", String.class, Jdbi.class);
-                    m.invoke(commandInstance, rawInput, jdbi);
+                    m.invoke(commandInstance, (input.length == 1) ? "" : input[1], jdbi);
 
                 } catch (Exception e) {
-
-                    e.printStackTrace();
+                    if (input[1].split(" ")[input[1].split(" ").length - 1].equals("-e")) e.printStackTrace();
                     System.out.println("Invalid command, type 'Help' to see available commands  :)");
                 }
             }

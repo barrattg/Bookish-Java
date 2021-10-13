@@ -4,20 +4,18 @@ done:
 List Users
 List Books
 Add users
+list of books on loan /specific user /past return date/
+ReserveCopy
+AddBook
+Add Author 
+Get Author
 
 todo:
-Add copy of book
-Check out book
-Check in book
-Add book
-Add Author
-Add author to book
-list of books on loan
-    - specific user
-    - past return date
-get author of book
+Add copy of book *Fin*
+Check out book *Fin*
+Check in book *Fin*
 get books from author
-list all copies of a book
+
 
 
 

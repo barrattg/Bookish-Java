@@ -7,14 +7,18 @@ public class AddUser implements Command {
 
 
     @Override
-    public void Execute(String input, Jdbi jdbi) {
+    public void Execute(String input, Jdbi jdbi) throws Exception {
 
         String[] data = input.split(" ");
 
+        try {
+            jdbi.withHandle(handle ->
+                    handle.execute("INSERT INTO users(id, name, address) VALUES (?, ?, ?)", data));
+        }
+        catch (Exception e) {
+            System.out.println();
+        }
 
-        jdbi.withHandle(handle ->
-
-                handle.execute("INSERT INTO users(id, name, address) VALUES (?, ?, ?)",data));
 
 
 

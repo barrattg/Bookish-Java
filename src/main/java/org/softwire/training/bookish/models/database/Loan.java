@@ -7,9 +7,8 @@ public class Loan {
 
     int ID;
     int UserID;
-    int BookID;
-    Date CheckoutDate;
-    Date ExpectedReturnDate;
+    int CopyID;
+    Date ReturnedDate;
 
     public int getID() {
         return ID;
@@ -27,39 +26,20 @@ public class Loan {
         UserID = userID;
     }
 
-    public int getBookID() {
-        return BookID;
+    public int getCopyID() {
+        return CopyID;
     }
 
-    public void setBookID(int bookID) {
-        BookID = bookID;
+    public void setCopyID(int copyID) {
+        CopyID = copyID;
     }
 
-    public Date getCheckoutDate() {
-        return CheckoutDate;
+    public Date getReturnedDate() {
+        return ReturnedDate;
     }
 
-    public void setCheckoutDate(Date checkoutDate) {
-        CheckoutDate = checkoutDate;
-    }
-
-    public Date getExpectedReturnDate() {
-        return ExpectedReturnDate;
-    }
-
-    public void setExpectedReturnDate(Date expectedReturnDate) {
-        ExpectedReturnDate = expectedReturnDate;
-    }
-
-    @Override
-    public String toString() {
-        return "Loan{" +
-                "ID=" + ID +
-                ", UserID=" + UserID +
-                ", BookID=" + BookID +
-                ", CheckoutDate=" + CheckoutDate +
-                ", ExpectedReturnDate=" + ExpectedReturnDate +
-                '}';
+    public void setReturnedDate(Date returnedDate) {
+        ReturnedDate = returnedDate;
     }
 
     @Override
@@ -67,11 +47,21 @@ public class Loan {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Loan loan = (Loan) o;
-        return ID == loan.ID && UserID == loan.UserID && BookID == loan.BookID && CheckoutDate.equals(loan.CheckoutDate) && ExpectedReturnDate.equals(loan.ExpectedReturnDate);
+        return ID == loan.ID && UserID == loan.UserID && CopyID == loan.CopyID && Objects.equals(ReturnedDate, loan.ReturnedDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ID, UserID, BookID, CheckoutDate, ExpectedReturnDate);
+        return Objects.hash(ID, UserID, CopyID, ReturnedDate);
+    }
+
+    @Override
+    public String toString() {
+        return "Loan{" +
+                "ID=" + ID +
+                ", UserID=" + UserID +
+                ", CopyID=" + CopyID +
+                ", ReturnedDate=" + ReturnedDate +
+                '}';
     }
 }
