@@ -23,7 +23,7 @@ public class ReturnCopy implements Command {
                         .bind("ID", LoanID)
                         .execute()
         );
-        System.out.println(o);
+        System.out.println("Loan for " + LoanID + " now returned");
         }
     }
 
