@@ -5,52 +5,41 @@ import java.util.Objects;
 
 public class Book {
 
-    int ID;
-    String Name;
-    String ISBN;
-    Date PublishDate;
+    private int id;
+    private String name;
+    private String isbn;
+    private String publishDate;
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
-    public String getISBN() {
-        return ISBN;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
-    public Date getPublishDate() {
-        return PublishDate;
+    public String getPublishDate() {
+        return publishDate;
     }
 
-    public void setPublishDate(Date publishDate) {
-        PublishDate = publishDate;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "ID=" + ID +
-                ", Name='" + Name + '\'' +
-                ", ISBN='" + ISBN + '\'' +
-                ", PublishDate=" + PublishDate +
-
-                '}';
+    public void setPublishDate(String publishDate) {
+        this.publishDate = publishDate;
     }
 
     @Override
@@ -58,11 +47,11 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return ID == book.ID && Name.equals(book.Name) && ISBN.equals(book.ISBN) && Objects.equals(PublishDate, book.PublishDate);
+        return id == book.id && Objects.equals(name, book.name) && Objects.equals(isbn, book.isbn) && Objects.equals(publishDate, book.publishDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ID, Name, ISBN, PublishDate);
+        return Objects.hash(id, name, isbn, publishDate);
     }
 }

@@ -2,7 +2,7 @@
 DROP TABLE IF EXISTS Books, Authors, Users, Loans, BooksToAuthors, Copies;
 
 Create table Books(
-ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ID INT AUTO_INCREMENT PRIMARY KEY,
 Name varchar (255) NOT NULL,
 ISBN varchar (13) NOT NULL,
 PublishDate date NOT NULL
