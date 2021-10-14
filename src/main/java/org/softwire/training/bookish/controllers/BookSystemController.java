@@ -41,16 +41,16 @@ public class BookSystemController {
 
     @RequestMapping("/add-book")
     RedirectView addBook(@ModelAttribute Book book) {
-        System.out.println("here" +book);
+
         bookService.addBook(book);
 
         return new RedirectView("/book");
     }
 
     @RequestMapping("/remove-book")
-    RedirectView removeBook(@ModelAttribute Book book) {
+    RedirectView removeBook(@RequestParam int bookId) {
 
-        bookService.removeBook(book);
+        bookService.removeBook(bookId);
 
         return new RedirectView("/book");
     }
