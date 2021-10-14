@@ -20,7 +20,7 @@
 </div>
 
     <h2>Add a book:</h2>
-    <form th:action="@{/book/add-book}" method="post">
+    <form style = 'margin-bottom: 50px;' th:action="@{/book/add-book}" method="post">
 
         <div class="add-book-row">
             <label>
@@ -42,15 +42,15 @@
         </div>
         <div class="add-book-row">
             <span><!-- spacer --></span>
-            <input type="submit" value="Add book" />
+            <input style = 'margin-bottom: 60px;' type="submit" value="Add book" />
         </div>
     </form>
 
     <div class="book-list">
         <div th:each="book : ${model.books}" class="book">
-            <p th:text="${book.getName()}"></p>
-            <span style='font-size:200px;'> &#128213;</span>
-            <a th:href="${'/book/remove-book?bookId=' + book.getId()}" onclick="return confirm('Confirm deletion of book?')"  class="delete-button"> delete</a>
+            <p style = 'height: 0px; width: 60px; margin-top: -50px; ' th:text="${book.getName()}"></p>
+            <div class ="emoji" style='font-size:180px; margin-top: -90px; z-index: -1;'> &#128213;</div>
+            <a style = 'margin-bottom: 60px;' th:href="${'/book/remove-book?bookId=' + book.getId()}" onclick="return confirm('Confirm deletion of book?')"  class="delete-button"> delete</a>
         </div>
     </div>
 
