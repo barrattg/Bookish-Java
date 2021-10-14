@@ -23,21 +23,21 @@ Address varchar (255)
 Create table BooksToAuthors(
 BookID INT NOT NULL AUTO_INCREMENT,
 AuthorID INT NOT NULL,
-Foreign Key (BookID) References Books (ID),
-Foreign Key (AuthorID) References Authors (ID)
+Foreign Key (BookID) References Books (ID) ON DELETE CASCADE,
+Foreign Key (AuthorID) References Authors (ID) ON DELETE CASCADE
 );
 
 Create table Copies(
 ID int AUTO_INCREMENT PRIMARY KEY,
 BookID int,
-Foreign Key (BookID) References Books (ID)
+Foreign Key (BookID) References Books (ID) ON DELETE CASCADE
 );
 
 Create table Loans(
 ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 UserID INT NOT NULL,
-Foreign Key (UserID) References Users (ID),
+Foreign Key (UserID) References Users (ID) ON DELETE CASCADE,
 CopyID INT,
-Foreign Key (CopyID) References Copies (ID),
+Foreign Key (CopyID) References Copies (ID) ON DELETE CASCADE,
 ReturnedDate date
 );
