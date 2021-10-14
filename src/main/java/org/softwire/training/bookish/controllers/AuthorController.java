@@ -47,7 +47,7 @@ public class AuthorController {
 
     @RequestMapping("/delete-author")
     RedirectView deleteAuthor(@RequestParam int authorId) {
-
+        System.out.println(authorId);
         authorService.deleteAuthor(authorId);
 
         return new RedirectView("/authors");
