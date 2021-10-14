@@ -1,10 +1,8 @@
 package org.softwire.training.bookish.controllers;
 
 import org.softwire.training.bookish.models.database.Author;
-import org.softwire.training.bookish.models.page.AboutPageModel;
-import org.softwire.training.bookish.models.page.AuthorPageModel;
+import org.softwire.training.bookish.models.page.AuthorsPage;
 import org.softwire.training.bookish.services.AuthorService;
-import org.softwire.training.bookish.services.TechnologyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -31,7 +29,7 @@ public class AuthorController {
 
         List<Author> allAuthors = authorService.getAllAuthors();
 
-        AuthorPageModel authorPageModel = new AuthorPageModel();
+        AuthorsPage authorPageModel = new AuthorsPage();
         authorPageModel.setAuthors(allAuthors);
 
         return new ModelAndView("author", "model", authorPageModel);
