@@ -14,7 +14,7 @@
 
     <h1>Search for Books and Authors</h1>
 
-    <form th:action = "@{/search}" method="post">
+    <form th:action = "@{/search}" method="get">
         <input type="text" name="searchCriteria" id="searchCriteria" placeholder="Search...">
         <button type="submit">Search</button>
     </form>

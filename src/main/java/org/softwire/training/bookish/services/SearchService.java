@@ -8,9 +8,9 @@ import java.util.List;
 @Service
 public class SearchService extends DatabaseService {
 
-    public List<Book> searchAll() {
-        // String bookCriterion = data.length > 0 && data[0].length() > 0? data[0]:"%";
-        // String authorCriterion = data.length > 1? data[1]:"%";
+    public List<Book> searchAll(String webBookCriterion, String webAuthorCriterion) {
+        String bookCriterion = webBookCriterion == null || webBookCriterion.length() == 0? "%":webBookCriterion;
+        String authorCriterion = webAuthorCriterion == null || webAuthorCriterion.length() == 0? "%":webAuthorCriterion;
 
 
 
@@ -19,10 +19,18 @@ public class SearchService extends DatabaseService {
                             "JOIN BooksToAuthors ON Authors.ID = BooksToAuthors.AuthorID\n" +
                             "JOIN Books ON Books.ID = BooksToAuthors.BookID\n" +
                             "WHERE Books.Name LIKE :SearchBooks AND Authors.Name LIKE :SearchAuthors")
-                    //.bind("SearchBooks", bookCriterion)
-                    //.bind("SearchAuthors", authorCriterion)
+                    .bind("SearchBooks", bookCriterion)
+                    .bind("SearchAuthors", authorCriterion)
                     .mapToBean(Book.class)
                     .list()
                 );
     }
 }
+
+// TODO make page that only displays search criteria - make copy of current search.html (call it different)
+// Make copy displays search criteria and books
+
+// go to controller & make another method called display similar to search
+// in search methods - take away requestparam and calls and return to search page
+// when submitted, goes to display method
+// add /display to requestmapping (/search/display/...)

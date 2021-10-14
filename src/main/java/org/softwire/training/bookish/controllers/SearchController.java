@@ -1,8 +1,12 @@
 package org.softwire.training.bookish.controllers;
 
+import org.softwire.training.bookish.models.database.Book;
 import org.softwire.training.bookish.models.database.Technology;
 import org.softwire.training.bookish.models.page.AboutPageModel;
+import org.softwire.training.bookish.models.page.BookSystemModel;
 import org.softwire.training.bookish.models.page.SearchPageModel;
+import org.softwire.training.bookish.services.AuthorService;
+import org.softwire.training.bookish.services.SearchService;
 import org.softwire.training.bookish.services.TechnologyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,17 +21,28 @@ import java.util.List;
 @RequestMapping("/search")
 public class SearchController {
 
+    private final SearchService searchService;
+
     @Autowired
-    public SearchController() {}
+    public SearchController(SearchService searchService) {
+        this.searchService = searchService;
+    }
 
     @RequestMapping("")
-    ModelAndView search(@ModelAttribute String searchCriteria) {
+    ModelAndView search(@RequestParam(name = "searchCriteria") String searchCriteria) {
 
         System.out.println("Searching... " + searchCriteria);
 
-        SearchPageModel searchPageModel = new SearchPageModel();
+        List<Book> bookResult = searchService.searchAll(searchCriteria, null);
 
-        return new ModelAndView("search", "model", searchPageModel);
+        BookSystemModel bookSystemModel = new BookSystemModel();
+        bookSystemModel.setBooks(bookResult);
+
+        return new ModelAndView("book", "model", bookSystemModel);
+
+        //SearchPageModel searchPageModel = new SearchPageModel();
+
+        //return new ModelAndView("search", "model", searchPageModel);
     }
 
 }
