@@ -13,10 +13,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 0px;
     margin-bottom: 60px;
+
+
 }
 
 .add-book-row {
-    margin-row: 20px
+    margin-row: 300px;
+    margin-left: 0px;
     font-family: "Segoe UI", sans-serif;
+}
+
+emoji {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+
 }
