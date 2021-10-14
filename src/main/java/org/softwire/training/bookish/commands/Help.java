@@ -1,6 +1,8 @@
 package org.softwire.training.bookish.commands;
 import org.jdbi.v3.core.Jdbi;
 
+import org.jdbi.v3.core.Jdbi;
+
 public class Help implements Command {
     @Override
     public void Execute(String input, Jdbi jdbi) {
@@ -16,8 +18,8 @@ public class Help implements Command {
                 "\nAUTHOR ADD/LIST  // " +
                 "\nBOOK ADD/LIST  // " +
                 "\nSearchBook {name} // Search for a book" +
-                "\nSearchAuthor {name} // Search for an author"
-
+                "\nSearchAuthor {name} // Search for an author" +
+                "\nSearch {book name} OR % {author name} // Search for book or author"
         );
 
     }

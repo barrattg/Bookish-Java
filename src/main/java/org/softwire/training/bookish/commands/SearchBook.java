@@ -5,7 +5,7 @@ import org.softwire.training.bookish.models.database.Book;
 
 import java.util.List;
 
-public class SearchBook implements Command{
+public class SearchBook implements Command {
 
     @Override
     public void Execute(String input, Jdbi jdbi) {

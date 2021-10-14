@@ -1,3 +1,4 @@
+use bookish;
 
 DROP TABLE IF EXISTS Books, Authors, Users, Loans, BooksToAuthors, Copies;
 
