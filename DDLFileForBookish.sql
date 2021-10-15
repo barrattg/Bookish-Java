@@ -39,5 +39,6 @@ UserID INT NOT NULL,
 Foreign Key (UserID) References Users (ID) ON DELETE CASCADE,
 CopyID INT,
 Foreign Key (CopyID) References Copies (ID) ON DELETE CASCADE,
+LoanedDate date,
 ReturnedDate date
 );
