@@ -1,25 +1,22 @@
 
-.author-list {
+.book-list {
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: start;
+    margin: 0 auto;
 }
 
-.author {
+.book {
     width: 30%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
-.author-inside {
-    width: 200px;
-    height: 110px;
-    text-align: center;
+.book-inside {
+
 }
 
 a {
