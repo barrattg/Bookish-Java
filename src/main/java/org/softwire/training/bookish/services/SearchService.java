@@ -12,8 +12,6 @@ public class SearchService extends DatabaseService {
         String bookCriterion = webBookCriterion == null || webBookCriterion.length() == 0? "%":webBookCriterion;
         String authorCriterion = webAuthorCriterion == null || webAuthorCriterion.length() == 0? "%":webAuthorCriterion;
 
-
-
         return jdbi.withHandle(handle ->
             handle.createQuery("SELECT Authors.ID, Authors.Name aname, Books.Name, Books.ISBN, Books.PublishDate FROM bookish.Authors\n" +
                             "JOIN BooksToAuthors ON Authors.ID = BooksToAuthors.AuthorID\n" +

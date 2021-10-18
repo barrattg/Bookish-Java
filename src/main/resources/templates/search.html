@@ -14,10 +14,12 @@
 
     <h1>Search for Books and Authors</h1>
 
-    <form th:action = "@{/search}" method="get">
+    <form th:action = "@{/search/display}" method="get">
         <input type="text" name="searchCriteria" id="searchCriteria" placeholder="Search...">
         <button type="submit">Search</button>
     </form>
+
+    <p>Leave the box blank to show all books.</p>
 
     <!-- <p th:text="${model.test}"></p> -->
 

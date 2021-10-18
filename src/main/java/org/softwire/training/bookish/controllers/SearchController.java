@@ -1,6 +1,8 @@
 package org.softwire.training.bookish.controllers;
 
 import org.softwire.training.bookish.models.database.Book;
+import org.softwire.training.bookish.models.database.Author;
+import org.softwire.training.bookish.models.database.BookToAuthor;
 import org.softwire.training.bookish.models.database.Technology;
 import org.softwire.training.bookish.models.page.AboutPageModel;
 import org.softwire.training.bookish.models.page.BookSystemModel;
@@ -29,20 +31,21 @@ public class SearchController {
     }
 
     @RequestMapping("")
-    ModelAndView search(@RequestParam(name = "searchCriteria") String searchCriteria) {
+    ModelAndView search() {
+        SearchPageModel searchPageModel = new SearchPageModel();
+        return new ModelAndView("search", "model", searchPageModel);
+    }
+
+    @RequestMapping("/display")
+    ModelAndView display(@RequestParam(name = "searchCriteria") String searchCriteria) {
 
         System.out.println("Searching... " + searchCriteria);
 
-        List<Book> bookResult = searchService.searchAll(searchCriteria, null);
+        List<Book> bookResult = searchService.searchAll("%" + searchCriteria + "%", null); // find books
 
         BookSystemModel bookSystemModel = new BookSystemModel();
-        bookSystemModel.setBooks(bookResult);
+        bookSystemModel.setBooks(bookResult); // put list of books in model
 
-        return new ModelAndView("book", "model", bookSystemModel);
-
-        //SearchPageModel searchPageModel = new SearchPageModel();
-
-        //return new ModelAndView("search", "model", searchPageModel);
+        return new ModelAndView("display", "model", bookSystemModel); // links to book.html & provide data
     }
-
 }
