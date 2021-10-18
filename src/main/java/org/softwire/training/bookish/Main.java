@@ -1,6 +1,5 @@
 package org.softwire.training.bookish;
 
-
 import org.jdbi.v3.core.Jdbi;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,6 +15,7 @@ public class Main {
         String user = "bookish";
         String password = "bookish";
         String connectionString = "jdbc:mysql://" + hostname + "/" + database + "?user=" + user + "&password=" + password + "&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT&useSSL=false";
+
         ReadEvaluatePrint.Loop(jdbiMethod(connectionString));
 
     }

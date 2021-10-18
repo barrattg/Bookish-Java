@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="/styles/navbar.css"/>
     <link rel="stylesheet" href="/styles/authorpage.css"/>
 
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
 </head>
 
 <body>
@@ -29,7 +34,7 @@
         <hr style="margin: 20px">
 
         <div class="row align-items-start">
-            <div class="col">
+            <div class="col animate__animated animate__fadeInUp">
                 <div style="width: 80%;margin: 0 auto;">
                     <h3 style="margin-left: 20px;">Summary</h3>
                     <p>Sed eu dapibus justo. Nullam sit amet mi vel lorem faucibus scelerisque. Maecenas libero ligula, condimentum a facilisis quis, facilisis vel leo. Morbi a consequat enim, sit amet imperdiet ligula. Nulla vehicula aliquam urna, vitae tristique massa consequat non. Suspendisse rhoncus sollicitudin urna, fringilla blandit nulla aliquam at. Integer placerat tempus ullamcorper. Aenean ligula ante, aliquet eget urna nec, facilisis efficitur ex. Vivamus vitae nibh sem. Donec ac aliquet metus, sit amet commodo justo. Maecenas nec blandit tortor, ac feugiat mi.</p>
@@ -37,23 +42,44 @@
                 </div>
             </div>
             <div class="col">
-                <form class="row g-3">
-                    <div class="col-md-6">
-                        <label for="inputName" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="inputName">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputId" class="form-label">ID</label>
-                        <input type="text" class="form-control" id="inputId">
-                    </div>
-                    <div class="col-12">
-                        <label for="inputAddress" class="form-label">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Checkout Book</button>
-                    </div>
-                </form>
+                <div class="animate__fadeInUp animate__delay-1s animate__animated">
+                    <form class="row g-3">
+                        <div class="col-md-6">
+                            <label for="inputName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="inputName">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputId" class="form-label">ID</label>
+                            <input type="text" class="form-control" id="inputId">
+                        </div>
+                        <div class="col-12">
+                            <label for="inputAddress" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Checkout Book</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="animate__fadeInUp animate__delay-2s animate__animated">
+                    <h4 style="margin: 30px 10px 10px;">Copies we have</h4>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Available</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="copy : ${model.getCopies()}">
+                            <td th:text="${copy.getId()}"></td>
+                            <td>True</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div>
 

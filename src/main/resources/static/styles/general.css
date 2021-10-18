@@ -19,3 +19,8 @@ body {
     max-width: 800px;
     flex-grow: 1;
 }
+
+:root {
+    --animate-duration: 200ms;
+    --animate-delay: 0.2s;
+}
