@@ -1,0 +1,47 @@
+#book-data {
+    font-family: Roboto, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#book-data td, #book-data th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+}
+
+#book-data tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#book-data tr:hover {
+    background-color: #dddddd;
+}
+
+#book-data th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #343A40;
+    color: white;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button {
+    width: 100%;
+    background-color: #343A40;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
