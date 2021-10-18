@@ -35,7 +35,7 @@
                         <div class="card-body">
                             <h5 class="card-title" th:text="${book.getName()}"></h5>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in orci rhoncus, convallis dolor id, faucibus metus. Nam sed ultricies.</p>
-                            <a href="#" class="btn btn-primary">Checkout Book</a>
+                            <a th:href="${'/bookpage?bookId=' + book.getId()}" class="btn btn-primary">Checkout Book</a>
                         </div>
                     </div>
                 </div>

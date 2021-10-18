@@ -54,6 +54,21 @@
                         <button type="submit" class="btn btn-primary">Checkout Book</button>
                     </div>
                 </form>
+                <h4 style="margin: 30px 10px 10px;">Copies we have</h4>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Available</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="copy : ${model.getCopies()}">
+                        <td th:text="${copy.getId()}"></td>
+                        <td>True</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
 

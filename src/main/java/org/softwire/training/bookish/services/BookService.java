@@ -18,6 +18,7 @@ public class BookService extends DatabaseService {
         );
     }
 
+
     public void addBook(Book book) {
 
         jdbi.useHandle(handle ->

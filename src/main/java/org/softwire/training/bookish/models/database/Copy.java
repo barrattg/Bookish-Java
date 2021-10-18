@@ -1,21 +1,19 @@
 package org.softwire.training.bookish.models.database;
 
-import java.util.Date;
 import java.util.Objects;
 
 public class Copy {
 
-    int CopyID;
+    int id;
     int BookID;
-    Date LoanedDate;
     //thinking of reserving datetime think of reserve add 3 hour window if elapsed, remove flag.
 
-    public int getCopyID() {
-        return CopyID;
+    public int getId() {
+        return id;
     }
 
-    public void setCopyID(int copyID) {
-        CopyID = copyID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getBookID() {
@@ -26,33 +24,24 @@ public class Copy {
         BookID = bookID;
     }
 
-    public Date getLoanedDate() {
-        return LoanedDate;
-    }
-
-    public void setLoanedDate(Date loanedDate) {
-        LoanedDate = loanedDate;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Copy copy = (Copy) o;
-        return CopyID == copy.CopyID && BookID == copy.BookID && LoanedDate.equals(copy.LoanedDate);
+        return this.id == copy.id && BookID == copy.BookID;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(CopyID, BookID, LoanedDate);
+        return Objects.hash(id, BookID);
     }
 
     @Override
     public String toString() {
         return "Copy{" +
-                "CopyID=" + CopyID +
+                "CopyID=" + id +
                 ", BookID=" + BookID +
-                ", LoanedDate=" + LoanedDate +
                 '}';
     }
 }
