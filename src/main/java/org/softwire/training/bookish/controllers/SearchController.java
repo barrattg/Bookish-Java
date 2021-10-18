@@ -37,11 +37,11 @@ public class SearchController {
     }
 
     @RequestMapping("/display")
-    ModelAndView display(@RequestParam(name = "searchCriteria") String searchCriteria) {
+    ModelAndView display(@RequestParam(name = "searchBooks") String searchBooks, String searchAuthors) {
 
-        System.out.println("Searching... " + searchCriteria);
+        System.out.println("Searching... " + searchBooks + searchAuthors);
 
-        List<Book> bookResult = searchService.searchAll("%" + searchCriteria + "%", null); // find books
+        List<Book> bookResult = searchService.searchAll("%" + searchBooks + "%", "%" + searchAuthors + "%"); // find books
 
         BookSystemModel bookSystemModel = new BookSystemModel();
         bookSystemModel.setBooks(bookResult); // put list of books in model

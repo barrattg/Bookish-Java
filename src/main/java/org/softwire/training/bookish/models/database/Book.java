@@ -10,15 +10,16 @@ public class Book {
 
     private int id;
     private String name;
-    @ColumnName("aname")
     private String author;
     private String isbn;
     private String publishDate;
 
+    @ColumnName("aname")
     public String getAuthor() {
         return author;
     }
 
+    @ColumnName("aname")
     public void setAuthor(String author) {
         this.author = author;
     }
