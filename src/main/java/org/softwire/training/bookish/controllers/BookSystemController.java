@@ -28,11 +28,18 @@ public class BookSystemController {
         this.bookService = bookService;
     }
     @RequestMapping("")
-    ModelAndView bookSystem() {
+    ModelAndView bookSystem(@RequestParam(value = "redirectbook", defaultValue = "0") int redirectbook) {
 
         List<Book> allBooks = bookService.getAllBooks();
 
+
+
+        //System.out.println(bookService.getBookFromId(bookService.getBookFromCopy(redirectbook)));
+
         BookSystemModel bookSystemModel = new BookSystemModel();
+        bookSystemModel.setRedirectBook(redirectbook==0
+                ? null
+                : bookService.getBookFromId(bookService.getBookFromCopy(redirectbook)));
         bookSystemModel.setBooks(allBooks);
 
         return new ModelAndView("book", "model", bookSystemModel);
