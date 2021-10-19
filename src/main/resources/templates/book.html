@@ -1,66 +1,72 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
-<!--@thymesVar id="model" type="org.softwire.training.bookish.models.page.BookSystemModel"-->
+    <!--@thymesVar id="model" type="org.softwire.training.bookish.models.page.BookSystemModel"-->
 
-<head>
-    <title>Bookish - Books</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="/styles/general.css"/>
-    <link rel="stylesheet" href="/styles/navbar.css"/>
-    <link rel="stylesheet" href="/styles/about.css"/>
-    <link rel="stylesheet" href="/styles/book.css"/>
-</head>
+    <head>
+        <title>Bookish - Books</title>
 
-<body>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="/styles/general.css"/>
+        <link rel="stylesheet" href="/styles/navbar.css"/>
+        <link rel="stylesheet" href="/styles/about.css"/>
+        <link rel="stylesheet" href="/styles/book.css"/>
+    </head>
 
-<div th:replace="fragments/navbar :: navbar">
-    <!-- This element is replaced by the HTML in fragments/navbar.html -->
-</div>
+    <body>
 
-    <h2>Add a book:</h2>
-    <form style = 'margin-bottom: 50px;' th:action="@{/book/add-book}" method="post">
+    <div th:replace="fragments/navbar :: navbar"></div>
 
-        <div class="add-book-row">
-            <label>
-                <span>Name: </span>
-                <input style = 'margin-left: 42px;' type="text" name="name">
-            </label>
-        </div>
-        <div class="add-book-row">
-            <label>
-                <span>ISBN: </span>
-                <input style = 'margin-left: 51px;' type="text" name="isbn">
-            </label>
-        </div>
-        <div class="add-book-row">
-            <label>
-                <span>PublishDate: </span>
-                <input type="text" name="publishDate">
-            </label>
-        </div>
-        <div class="add-book-row">
-            <span><!-- spacer --></span>
-            <input style = 'margin-bottom: 60px;' type="submit" value="Add book" />
-        </div>
-    </form>
+    <h1>Books</h1>
+
+    <form style ="margin-bottom: 50px;" th:action="@{/book/add-book}" method="post">
+            <div class="add-book-row" style="float:left;">
+                <label for="addBookName" class="form-label">Name</label>
+                <input style="margin-bottom: 10px;" type="text" class="form-control" id="addBookName" name="name" placeholder="Book Title">
+            </div>
+            <div class="add-book-row" style="float:left;">
+                <label for="addBookIsbn" class="form-label">ISBN</label>
+                <input style="margin-bottom: 10px;" type="text" class="form-control" id="addBookIsbn" name="isbn" placeholder="0000000000000">
+            </div>
+            <div class="add-book-row" style="float:left;">
+                <label for="addBookPublishDate" class="form-label">Publish Date</label>
+                <input style="margin-bottom: 10px;" type="text" class="form-control" id="addBookPublishDate" name="publishDate" placeholder="yyyy-mm-dd">
+            </div>
+            <div class="add-book-row" style="float:left;">
+                <span></span>
+                <button style="margin-bottom: 50px;" class="btn btn-primary" type="submit">Add Book</button>
+            </div>
+        </form>
 
     <div class="book-list">
         <div th:each="book : ${model.books}" class="book">
-            <p style = 'height: -0px; width: 100px; margin-left: 10px; margin-top: -50px; font-weight: bold; ' th:text="${book.getName()}"></p>
-            <div class ="emoji" style='font-size:180px; margin-top: -80px; z-index: -1;'> &#128213;</div>
-            <a style = 'margin-bottom: -10px; margin-top: -120px;' th:href="${'/bookpage?bookId=' + book.getId()}" class="page-button"> checkout</a>
-            <a style = 'margin-bottom: 100px; ' th:href="${'/book/remove-book?bookId=' + book.getId()}" onclick="return confirm('Confirm deletion of book?')"  class="delete-button"> delete</a>
-
+            <div class="card" style="width: 18rem; padding: 20px;">
+                <h5 class="card-title" th:text="${book.getName()}"></h5>
+                <!-- Would like to get author here but it doesn't work -->
+                <p class="card-text mb-2 text-muted" th:text="${book.getPublishDate()}"></p>
+                <p class="card-text mb-2 text-muted" th:text="${book.getIsbn()}"></p>
+                <div class="book-card-buttons" style="float:left">
+                    <button style="width: 40%" type="button" class="btn btn-primary" th:href="${'/bookpage?bookId=' + book.getId()}">Checkout</button>
+                    <button style="width: 40%" type="button" class="btn btn-danger" th:href="${'/book/remove-book?bookId=' + book.getId()}" onclick="return confirm('Confirm deletion of book?')">Delete</button>
+                </div>
+            </div>
         </div>
     </div>
 
+<!--    <div class="book-list">-->
+<!--            <div th:each="book : ${model.books}" class="book">-->
+<!--                <p style = 'height: 0px; width: 100px; margin-left: 10px; margin-top: -50px; font-weight: bold; ' th:text="${book.getName()}"></p>-->
+<!--                <div class ="emoji" style='font-size:180px; margin-top: -80px; z-index: -1;'> &#128213;</div>-->
+<!--                <a style = 'margin-bottom: -10px; margin-top: -120px;' th:href="${'/bookpage?bookId=' + book.getId()}" class="page-button">Checkout</a>-->
+<!--                <a style = 'margin-bottom: 100px; ' th:href="${'/book/remove-book?bookId=' + book.getId()}" onclick="return confirm('Confirm deletion of book?')"  class="delete-button">Delete</a>-->
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-</body>
+<!--            </div>-->
+<!--        </div>-->
 
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    </body>
 </html>
