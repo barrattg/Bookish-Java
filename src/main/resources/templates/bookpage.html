@@ -57,17 +57,19 @@
                         <tr th:each="copy : ${model.getCopies()}">
                             <td th:text="${copy.getId()}"></td>
                             <td><form style = 'margin-bottom: 50px;'  th:action="@{/checkoutCopy/createReservation}" method="post">
-                                <div class="add-user-row">
+                                <div class="input-group mb-3">
                                     <label>
-                                        <span>UserID : </span>
-                                        <input type="number" name="userId">
+
+                                        <input placeholder="userId" class="form-control" type="number" name="userId">
                                     </label>
                                 </div>
                                 <input type="hidden" name="copyId" th:attr="value = ${copy.getId()}">
-                                    <input style = 'margin-bottom: 60px;' type="submit" value="Checkout this Copy" />
+                                <!-- Button trigger modal -->
+
+                                <input style = 'margin-bottom: 60px;' class="btn btn-primary" type="submit" value="Checkout this Copy" />
 
                             </form></td>
-                            <td>True</td>
+
 
                         </tr>
                         </tbody>
