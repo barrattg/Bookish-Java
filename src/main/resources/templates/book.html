@@ -17,7 +17,7 @@
 <div th:replace="fragments/navbar :: navbar">
     <!-- This element is replaced by the HTML in fragments/navbar.html -->
 </div>
-    <p th:text="${'You have just loaned a copy of ' + model.getRedirectBook().getName()}"></p>
+    <div th:if="${model.getRedirectBook()!=null}"><p  th:text="${'You have just loaned a copy of ' + model.getRedirectBook().getName()}"></p></div>
     <h2>Add a book:</h2>
     <form style = 'margin-bottom: 50px;' th:action="@{/book/add-book}" method="post">
 
