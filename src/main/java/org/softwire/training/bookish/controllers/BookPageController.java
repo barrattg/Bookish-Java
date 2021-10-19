@@ -27,7 +27,6 @@ public class BookPageController {
     ModelAndView bookPage(@RequestParam int bookId) {
 
         List<Copy> allCopies = bookPageService.getAllCopies(bookId);
-        System.out.println(allCopies);
 
         BookPageModel bookPageModel = new BookPageModel();
         bookPageModel.SetBook(bookPageService.GetBook(bookId));

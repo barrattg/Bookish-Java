@@ -38,7 +38,7 @@ public class CheckoutCopyController {
 
         checkoutCopyService.createReservation(copyId,userId);
 
-        return new RedirectView("/book");
+        return new RedirectView("/book?redirectbook=" + copyId);
     }
 
 
