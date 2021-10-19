@@ -18,6 +18,23 @@ public class BookService extends DatabaseService {
         );
     }
 
+    public Book getBookFromId(Integer bookId) {
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT * FROM books WHERE ID=:id")
+                        .bind("id", bookId)
+                        .mapToBean(Book.class)
+                        .list().get(0)
+        );
+    }
+
+    public Integer getBookFromCopy(Integer copyId) {
+        return jdbi.withHandle(handle ->
+                handle.createQuery("SELECT BookID FROM copies WHERE ID = :id ")
+                        .bind("id", copyId)
+                        .mapTo(Integer.class)
+                        .list().get(0)
+        );
+    }
 
     public void addBook(Book book) {
 

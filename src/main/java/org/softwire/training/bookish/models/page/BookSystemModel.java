@@ -8,6 +8,15 @@ import java.util.List;
 public class BookSystemModel {
 
     private List<Book> books;
+    private Book redirectBook;
+
+    public Book getRedirectBook() {
+        return redirectBook;
+    }
+
+    public void setRedirectBook(Book redirectBook) {
+        this.redirectBook = redirectBook;
+    }
 
     public List<Book> getBooks() {
         return books;
@@ -16,6 +25,8 @@ public class BookSystemModel {
     public void setBooks(List<Book> books) {
         this.books = books;
     }
+
+
 
 }
 
