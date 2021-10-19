@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookish | Search</title>
+
+    <link rel="stylesheet" href="/styles/general.css"/>
+    <link rel="stylesheet" href="/styles/navbar.css"/>
+    <link rel="stylesheet" href="/styles/search.css"/>
+</head>
+<body>
+    <div th:replace="fragments/navbar :: navbar"> <!-- Navbar -->
+    </div>
+
+    <h1>Search for Books and Authors</h1>
+
+    <form th:action = "@{/search/display}" method="get">
+        <input type="text" name="searchBooks" id="searchBooks" placeholder="Search Books...">
+        <input type="text" name="searchAuthors" id="searchAuthors" placeholder="Search Authors...">
+        <button type="submit">Search</button>
+    </form>
+
+    <p>Leave the box blank to show all books.</p>
+
+</body>
+</html>

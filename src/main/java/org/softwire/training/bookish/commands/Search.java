@@ -16,9 +16,6 @@ public class Search implements Command {
         String bookCriterion = data.length > 0 && data[0].length() > 0? data[0]:"%";
         String authorCriterion = data.length > 1? data[1]:"%";
 
-        System.out.println(authorCriterion);
-        System.out.println(bookCriterion);
-
         List<Book> tempSearch = jdbi.withHandle(handle ->
                 handle.createQuery("SELECT Authors.ID, Authors.Name aname, Books.Name, Books.ISBN, Books.PublishDate FROM bookish.Authors\n" +
                         "JOIN BooksToAuthors ON Authors.ID = BooksToAuthors.AuthorID\n" +

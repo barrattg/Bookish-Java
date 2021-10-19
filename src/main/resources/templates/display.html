@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--@thymesVar id="model" type="org.softwire.training.bookish.models.page.BookSystemModel"-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bookish | Display</title>
+
+    <link rel="stylesheet" href="/styles/general.css"/>
+    <link rel="stylesheet" href="/styles/navbar.css"/>
+    <link rel="stylesheet" href="/styles/search.css"/>
+</head>
+
+<style>
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<body>
+    <div th:replace="fragments/navbar :: navbar"> <!-- Navbar -->
+    </div>
+
+    <h1>Search Results</h1>
+
+    <div class="book-list">
+        <table id="book-data">
+            <tr>
+                <th>Book Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Publish Date</th>
+            </tr>
+            <tr th:each="book : ${model.books}" class="book">
+                <td th:text="${book.getName()}"></td>
+                <td th:text="${book.getAuthor()}"></td>
+                <td th:text="${book.getIsbn}" class="book"></td>
+                <td th:text="${book.getPublishDate}" class="book"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

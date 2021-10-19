@@ -1,5 +1,8 @@
 package org.softwire.training.bookish.models.database;
 
+import org.jdbi.v3.core.mapper.reflect.ColumnName;
+import org.springframework.web.bind.annotation.GetMapping;
+
 import java.util.Date;
 import java.util.Objects;
 
@@ -7,8 +10,19 @@ public class Book {
 
     private int id;
     private String name;
+    private String author;
     private String isbn;
     private String publishDate;
+
+    @ColumnName("aname")
+    public String getAuthor() {
+        return author;
+    }
+
+    @ColumnName("aname")
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
     public int getId() {
         return id;
@@ -47,6 +61,7 @@ public class Book {
         return "Book{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", publishDate='" + publishDate + '\'' +
                 '}';
@@ -57,11 +72,11 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return id == book.id && Objects.equals(name, book.name) && Objects.equals(isbn, book.isbn) && Objects.equals(publishDate, book.publishDate);
+        return id == book.id && Objects.equals(name, book.name) && Objects.equals(author, book.author) && Objects.equals(isbn, book.isbn) && Objects.equals(publishDate, book.publishDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, isbn, publishDate);
+        return Objects.hash(id, name, author, isbn, publishDate);
     }
 }
