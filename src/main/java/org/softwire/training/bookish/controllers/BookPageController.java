@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.print.attribute.standard.Copies;
 import java.util.List;
@@ -34,5 +35,8 @@ public class BookPageController {
         return new ModelAndView("bookpage", "model", bookPageModel);
 
     }
+
+
+
 
 }
