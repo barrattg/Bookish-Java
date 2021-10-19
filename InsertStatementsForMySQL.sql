@@ -1,28 +1,28 @@
+use bookish;
+
 Insert INTO books(ID, Name, ISBN, PublishDate)
 VALUES 
-('1', "The Golden Compass", '9781234567897', '2001-05-05'),
-('2', "Who Shot Roger Rabbit?", '9781234567896', '2000-06-02'),
-('3', "A New Hope", '9781234567895', '1987-05-04'),
-('4', "A Clockwork Orange", '9781234567894', '1994-02-08'),
-('5', "One Flew over the Cuckoo's Nest", '9781234567893', '1994-05-06'),
-('6', "Medieval History", '9781234567892', '2001-06-30'),
-('7', "Flute Bard", '9781234567891', '1976-01-01'),
-('8', "Shinobi", '9781234567890', '2010-06-20'),
-('9', "Yet Another Book Title", '9781234567889', '2021-10-12'),
-('10', "Running out of Ideas", '9781234567888', '2020-05-05');
+('1', "Invisible City", '9781407104027', '2008-02-04'),
+('2', "Point Blanc", '9781406360202', '2001-09-03'),
+('3', "Harry Potter and the Philosopher's Stone", '9780747532743', '1997-06-26'),
+('4', "Percy Jackson and the Lightning Thief", '978014134680', '2005-05-21'),
+('5', "The Midnight Library", '9781786892737', '2021-02-18'),
+('6', "Funnybones", '9780140565812', '1999-07-17'),
+('7', "Good Omens", '9780552176729', '1990-05-10'),
+('8', "Harry Potter and the Chamber of Secrets", '9781408855669', '1998-07-02'),
+('9', "Harry Potter and the Prisoner of Azkaban", '9781408855676', '1999-07-08'),
+('10', "Harry Potter and the Goblet of Fire", '9781408855683', '2000-07-08');
 
 Insert INTO authors (ID, Name)
 VALUES
-('1', "Ida Merritt"),
-('2', "Bertha Chambers"),
-('3', "Alice Frost"),
-('4', "Emma Ball"),
-('5', "Minnie Hall"),
-('6', "George Beard"),
-('7', "William Sherman"),
-('8', "John Mendoza"),
-('9', "Frank West"),
-('10', "Henry Hurst");
+('1', "MG Harris"),
+('2', "Anthony Horowitz"),
+('3', "J. K. Rowling"),
+('4', "Rick Riordan"),
+('5', "Matt Haig"),
+('6', "Allan Ahlberg"),
+('7', "Neil Gaiman"),
+('8', "Terry Pratchett");
 
 Insert INTO users (ID, Name, Address)
 VALUES
@@ -40,15 +40,16 @@ VALUES
 Insert INTO BooksToAuthors ( BookID, AuthorID)
 VALUES
 ('1','1'),
-('2', '10'),
-('3', '2'),
-('4', '9'),
-('5', '3'),
-('6', '7'),
-('7', '4'),
-('8', '5'),
-('9', '6'),
-('10', '8');
+('2', '2'),
+('3', '3'),
+('4', '4'),
+('5', '5'),
+('6', '6'),
+('7', '7'),
+('7', '8'),
+('8', '3'),
+('9', '3'),
+('10', '3');
 
 Insert INTO Copies (ID, BookID)
 VALUES
