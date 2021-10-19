@@ -46,6 +46,8 @@ public class SearchController {
         BookSystemModel bookSystemModel = new BookSystemModel();
         bookSystemModel.setBooks(bookResult); // put list of books in model
 
+        bookSystemModel.setBlankMessage("Results found: " + bookResult.size());
+
         return new ModelAndView("display", "model", bookSystemModel); // links to book.html & provide data
     }
 }

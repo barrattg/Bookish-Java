@@ -26,8 +26,15 @@ public class BookSystemModel {
         this.books = books;
     }
 
+    public String getBlankMessage() {
+        return blankMessage;
+    }
 
+    public void setBlankMessage(String blankMessage) {
+        this.blankMessage = blankMessage;
+    }
 
+    private String blankMessage;
 }
 
 

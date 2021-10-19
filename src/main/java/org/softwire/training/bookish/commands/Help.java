@@ -8,18 +8,19 @@ public class Help implements Command {
     public void Execute(String input, Jdbi jdbi) {
 
         System.out.println("Available Commands: " +
-                "\nAddBook {name} {ISBN} {date:yyyy-mm-dd}  // Add a new book" +
-                "\nAddAuthor {name}  // Add a new author" +
-                "\nAddUser {name} {address}  // Add a new User" +
-                "\nGetBook  // List all books in the database" +
-                "\nGetLoans [UserID]  // Get list of loaned books" +
-                "\nGetUser  // List Users" +
-                "\nGetAuthors // Get Authors" +
-                "\nAUTHOR ADD/LIST  // " +
-                "\nBOOK ADD/LIST  // " +
-                "\nSearchBook {name} // Search for a book" +
-                "\nSearchAuthor {name} // Search for an author" +
-                "\nSearch {book name} OR % {author name} // Search for book or author"
+                "\n\nADD ENTRIES\n-----" +
+                "\nAddBook {name} {ISBN} {date:yyyy-mm-dd} | Adds a new book" +
+                "\nAddAuthor {name} | Adds a new author" +
+                "\nAddUser {name} {address} | Adds a new User" +
+                "\n\nGET ENTRIES\n-----" +
+                "\nGetBook | Lists all books in the database" +
+                "\nGetAuthors | Lists all authors" +
+                "\nGetUser | Lists all users" +
+                "\nGetLoans (Broken)| Lists all loaned books for specified user" +
+                "\n\nSEARCH ENTRIES (Broken in console)\n-----" +
+                "\nSearchBook {name} | Search for a book" +
+                "\nSearchAuthor {name} | Search for an author" +
+                "\nSearch {book name} OR % {author name} | Search for book or author"
         );
 
     }
