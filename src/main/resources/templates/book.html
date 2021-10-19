@@ -49,7 +49,9 @@
         <div th:each="book : ${model.books}" class="book">
             <p style = 'height: -0px; width: 100px; margin-left: 10px; margin-top: -50px; font-weight: bold; ' th:text="${book.getName()}"></p>
             <div class ="emoji" style='font-size:180px; margin-top: -80px; z-index: -1;'> &#128213;</div>
-            <a style = 'margin-bottom: 60px;' th:href="${'/book/remove-book?bookId=' + book.getId()}" onclick="return confirm('Confirm deletion of book?')"  class="delete-button"> delete</a>
+            <a style = 'margin-bottom: -10px; margin-top: -120px;' th:href="${'/bookpage?bookId=' + book.getId()}" class="page-button"> checkout</a>
+            <a style = 'margin-bottom: 100px; ' th:href="${'/book/remove-book?bookId=' + book.getId()}" onclick="return confirm('Confirm deletion of book?')"  class="delete-button"> delete</a>
+
         </div>
     </div>
 

@@ -57,7 +57,7 @@
                             <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Checkout Book</button>
+
                         </div>
                     </form>
                 </div>
@@ -74,7 +74,9 @@
                         <tbody>
                         <tr th:each="copy : ${model.getCopies()}">
                             <td th:text="${copy.getId()}"></td>
+                            <a th:href="${'/bookPage/checkoutBook?bookId=' + book.getId()}"> <button type="submit" class="checkout-button">Checkout Book</button></a>
                             <td>True</td>
+
                         </tr>
                         </tbody>
                     </table>
