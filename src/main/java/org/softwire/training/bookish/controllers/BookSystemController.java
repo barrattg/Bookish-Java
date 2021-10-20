@@ -31,9 +31,7 @@ public class BookSystemController {
     ModelAndView bookSystem(@RequestParam(value = "redirectbook", defaultValue = "0") int redirectbook) {
 
         List<Book> allBooks = bookService.getAllBooks();
-
-
-
+        
         //System.out.println(bookService.getBookFromId(bookService.getBookFromCopy(redirectbook)));
 
         BookSystemModel bookSystemModel = new BookSystemModel();
