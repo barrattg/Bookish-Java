@@ -34,10 +34,12 @@
                 <th>Publish Date</th>
             </tr>
             <tr th:each="book : ${model.books}" class="book">
-                <td th:text="${book.getName()}"></td>
+
+                <td> <a th:href="${'/bookpage?bookId=' + book.getId()}" th:text="${book.getName()}"/></td>
                 <td th:text="${book.getAuthor()}"></td>
                 <td th:text="${book.getIsbn}" class="book"></td>
                 <td th:text="${book.getPublishDate}" class="book"></td>
+
             </tr>
         </table>
     </div>

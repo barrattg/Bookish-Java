@@ -13,7 +13,7 @@ public class SearchService extends DatabaseService {
         String authorCriterion = webAuthorCriterion == null || webAuthorCriterion.length() == 0? "%":webAuthorCriterion;
 
         return jdbi.withHandle(handle ->
-            handle.createQuery("SELECT Authors.ID, Authors.Name aname, Books.Name, Books.ISBN, Books.PublishDate FROM bookish.Authors\n" +
+            handle.createQuery("SELECT Books.ID, Authors.Name aname, Books.Name, Books.ISBN, Books.PublishDate FROM bookish.Authors\n" +
                             "JOIN BooksToAuthors ON Authors.ID = BooksToAuthors.AuthorID\n" +
                             "JOIN Books ON Books.ID = BooksToAuthors.BookID\n" +
                             "WHERE Books.Name LIKE :SearchBooks AND Authors.Name LIKE :SearchAuthors\n" +
