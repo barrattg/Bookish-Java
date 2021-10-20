@@ -55,11 +55,11 @@
                                 <p th:text="${author.name}"></p>
                                 </a>
                                 <!-- Button trigger modal -->
-                                <button style="width:100%;margin-bottom: 3px; z-index: 1" type="button" class="btn btn-outline-danger" th:href="${'/authors/remove-author?authorId=' + author.getId()}" onclick="return confirm('Conform deletion of author?')">Remove</button>
+                                <button style="width:100%;margin-bottom: 3px; z-index: 1" type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modal-warning"  th:attr="data-bs-target='#modal-warning'+${author.id }">Remove</button>
                                 <!-- th:href="${'/book/remove-book?bookId=' + book.getId()}" onclick="return confirm('Confirm deletion of book?') -->
 
                                 <!-- Modal -->
-                                <div class="modal fade in" th:id="data-bs-target" tabindex="-1">
+                                <div class="modal fade in" th:id="modal-warning+${author.id }" tabindex="-1">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">

@@ -22,7 +22,23 @@ VALUES
 ('5', "Matt Haig"),
 ('6', "Allan Ahlberg"),
 ('7', "Neil Gaiman"),
-('8', "Terry Pratchett");
+('8', "Edgar Allan Poe"),
+('9', "Charles Dickens"),
+('10', "Stephen King"),
+('11', "J. R. R. Tolkien"),
+('12', "C. S. Lewis"),
+('13', "Jane Austen"),
+('14', "George Orwell"),
+('15', "Dr. Seuss"),
+('16', "Virginia Woolf"),
+('17', "George R. R. Martin"),
+('18', "John Green"),
+('19', "H. P. Lovecraft"),
+('20', "Karl Marx"),
+('21', "Ernest Cline"),
+('22', "Suzanne Collins"),
+('23', "Ernest Hemingway"),
+('24', "Terry Pratchett");
 
 Insert INTO users (ID, Name, Address)
 VALUES
